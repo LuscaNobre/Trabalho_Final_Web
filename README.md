@@ -135,15 +135,6 @@ Nas rotas protegidas, envie `Authorization: Bearer <token>`. Cadastros públicos
 
 O modelo de dados, os perfis de acesso e as regras de negócio estão detalhados em [`docs/architecture.md`](docs/architecture.md).
 
-## Demonstração em sala (3–5 min)
-
-1. Apresente a página inicial, a identidade urbana e as categorias de serviços.
-2. Abra a agenda e mostre a lista de horários livres sem entrar.
-3. Crie uma conta cliente e faça um agendamento.
-4. Mostre o agendamento em “Minha conta” e tente cancelar.
-5. Demonstre uma senha incorreta e a mensagem de erro; explique que as senhas são armazenadas com bcrypt.
-6. Entre como administrador e mostre os indicadores, a agenda e o gerenciamento de serviços/barbeiros.
-7. Explique que a API recalcula disponibilidade e valida os dados antes de persistir no MongoDB.
 
 ## Decisões de segurança
 
@@ -158,11 +149,3 @@ O modelo de dados, os perfis de acesso e as regras de negócio estão detalhados
 
 Os valores de demonstração foram mantidos provisórios para o projeto acadêmico. Para referência inicial em Boa Vista, foram consultados anúncios públicos de barbearia local no Booksy e um agregador local de preços; há variação relevante entre estabelecimentos e serviços. Ajuste os valores à realidade do estúdio antes de qualquer uso comercial: [Marval Barbearia no Booksy](https://booksy.com/pt-br/131326_marval-barbearia_barbearias_831458_boa-vista) · [referência local de preços](https://loqal.com.br/servicos/barbeiro/rr/boa-vista).
 
-## Deploy (bônus)
-
-O repositório já vem pronto para publicar:
-
-- `render.yaml`: blueprint da API no Render (pasta `server`, `npm start`, health check em `/api/health`).
-- `client/vercel.json`: faz as rotas do React funcionarem ao recarregar a página na Vercel.
-
-O passo a passo completo (MongoDB Atlas → Render → Vercel → CORS) está em [`docs/deploy.md`](docs/deploy.md). Variáveis necessárias: `MONGODB_URI`, `JWT_SECRET` e `CLIENT_URL` na API, e `VITE_API_URL` no frontend. Troque as credenciais de demonstração antes de publicar.
