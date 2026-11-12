@@ -1,0 +1,22 @@
+# Blueprint do Render para a API (bônus de deploy).
+# No Render: New > Blueprint > selecione este repositório.
+services:
+  - type: web
+    name: street095-api
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CLIENT_URL
+        sync: false
